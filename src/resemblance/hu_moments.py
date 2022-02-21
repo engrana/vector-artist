@@ -11,7 +11,7 @@ def hu_moments(img: np.ndarray) -> np.ndarray:
 
 
 def normalize(hu_m: np.ndarray) -> np.ndarray:
-    return np.copysign(1.0, hu_m) * np.log10(abs(hu_m))
+    return np.copysign(1.0, hu_m) * np.log10(abs(np.clip(hu_m, a_min=0.0000000001, a_max=None)))
 
 
 def compare(img1: np.ndarray, img2: np.ndarray) -> float:
